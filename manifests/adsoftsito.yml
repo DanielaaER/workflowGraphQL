@@ -13,11 +13,11 @@ spec:
         app: {model_name}-server
     spec:
       containers:
-      - image: okteto.dev/hacker-adsoftsito:latest
-        name: adsoftsito
+      - image: okteto.dev/{docker_user}:latest
+        name: {docker_user}
         envFrom:
         - configMapRef:
-            name: adsoftsito-config
+            name: {docker_user}-config
         livenessProbe:
           httpGet:
             path: /ht/
