@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - image: okteto.dev/hacker-adsoftsito:latest
-        name: {docker_user}
+        name: adsoftsito
         envFrom:
         - configMapRef:
-            name: {docker_user}-config
+            name: adsoftsito-config
         livenessProbe:
           httpGet:
             path: /ht/
