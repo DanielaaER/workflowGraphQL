@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adsoftsito
+  name: {model_name}-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: adsoftsito
+      app: {model_name}-server
   template:
     metadata:
       labels:
-        app: adsoftsito
+        app: {model_name}-server
     spec:
       containers:
       - image: okteto.dev/adsoftsito:latest
-        name: adsoftsito
+        name: {docker_user}
         envFrom:
         - configMapRef:
-            name: adsoftsito-config
+            name: {docker_user}-config
         livenessProbe:
           httpGet:
             path: /ht/
@@ -29,13 +29,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: adsoftsito
+  name: model_name}-service
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP  
   ports:
-  - name: "adsoftsito"
+  - name: model_name}-service
     port: 8080
   selector:
-    app: adsoftsito
+    app: model_name}-server
