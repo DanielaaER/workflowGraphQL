@@ -13,7 +13,7 @@ spec:
         app: {model_name}-server
     spec:
       containers:
-      - image: okteto.dev/adsoftsito:latest
+      - image: okteto.dev/{docker_user}:latest
         name: {docker_user}
         envFrom:
         - configMapRef:
