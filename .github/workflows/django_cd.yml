@@ -1,4 +1,5 @@
 # adsoft-sito
+# adsoft-sito
 name: master - Okteto CI/CD
 
 # Controls when the action will run. 
@@ -57,7 +58,7 @@ jobs:
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:
-         name: ${{ secrets.MODEL_NAME }}
+         name: hackernews
          timeout: 5m
          #variables: "DEV_USER=${{ secrets.DEV_USER }}"
 
@@ -65,4 +66,4 @@ jobs:
 #      uses: srt32/uptime@master
 #      with:
 #        url-to-hit: "https://adsoftsito-adsoftsito.cloud.okteto.net/graphql/"
-#        expected-statuses: "200"        
+#        expected-statuses: "200"     
